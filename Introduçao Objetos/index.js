@@ -36,7 +36,8 @@ const pessoa02 = {
     idade:25,
 
     fala(){
-        console.log(`${this.nome} ${this.sobrenome} está mandando um oi!`)
+        console.log(`${this.nome} ${
+            this.sobrenome} está mandando um oi!`)
     }
 };
 
