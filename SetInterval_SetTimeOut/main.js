@@ -15,7 +15,6 @@ const timer = setInterval(function (){
 
 setTimeout(function(){
     clearInterval(timer)
-
 },3000);
 
 setTimeout(function(){
