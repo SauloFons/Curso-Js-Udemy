@@ -26,7 +26,7 @@ function relogio() {
       relogio.innerHTML = '00:00:00';
       relogio.classList.remove('pausado');
       segundos = 0;
-    }
+    } 
 
     if (el.classList.contains('iniciar')) {
       relogio.classList.remove('pausado');
