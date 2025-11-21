@@ -106,6 +106,67 @@
 
 //RETORNE APENAS UMA STRING COM O NOME DA PESSOA
 
+// const pessoas = [
+//     {nome : 'Saulo' , idade: 25},
+//     {nome : 'Gomes' , idade: 67},
+//     {nome : 'Fonseca' , idade: 55},
+//     {nome : 'Ana' , idade: 32},
+//     {nome : 'Joao' , idade: 28},
+//     {nome : 'Claudio' , idade: 33},
+// ]
+
+// const nomes = pessoas.map(obj => obj.nome);
+// console.log(nomes);
+
+
+// //MOSTRE APENAS AS IDADES DO OBJETO
+// const idade = pessoas.map(obj => ({idade : obj.idade}));
+// console.log(idade);
+
+// //ADICIONA UMA CHAVE DE ID EM CADA OBJETO
+
+// const comId = pessoas.map(function (obj,indice){
+//     const newObj = {...obj};
+//     newObj.id = indice + 1
+//     return newObj; 
+// });
+// console.log(comId)
+// console.log(pessoas)
+
+// ********* REDUCE ***********
+
+// const numeros = [1 , 55 , 6 , 12 , 22 , 9 , 10 , 75 , 3 , 22 , 14 , 18];
+
+// // SOME TODOS OS NÚMEROS 
+
+// const total = numeros.reduce(function(acumulador, valor){
+//     acumulador += valor;
+//     return acumulador
+// },0)
+
+// console.log(total);
+
+// //RETORNE UM ARRAY COM OS VALORES PARES (CORRETO SERIA FAZER COM FILTER, SOMENTE EXEMPLO DA FUNCIONALIDADE)
+
+// const pares = numeros.reduce(function(acumulador, valor){
+//     if (valor % 2 === 0 ) acumulador.push(valor);
+//     return acumulador
+// }, [] );
+
+// console.log(pares);
+
+// //RETORNO UM ARRAY COM O DOBRO DOS VALORES (CORRETO SERIA FAZER COM MAP, SOMENTE EXEMPLO DA FUNCIONALIDADE)
+
+// const dobro = numeros.reduce (function(acumulador, valor){
+//     acumulador.push(valor*2);
+//     return acumulador;
+// }, [] )
+
+// console.log(dobro)
+
+//RETORNE APENAS A PESSOA MAIS VELHA
+
+
 const pessoas = [
     {nome : 'Saulo' , idade: 25},
     {nome : 'Gomes' , idade: 67},
@@ -115,20 +176,8 @@ const pessoas = [
     {nome : 'Claudio' , idade: 33},
 ]
 
-const nomes = pessoas.map(obj => obj.nome);
-console.log(nomes);
+const maisVelha = pessoas.reduce(function ( acumulador, valor){
+    if (acumulador.idade > valor.idade) return acumulador ; return valor;
+},0);
 
-
-//MOSTRE APENAS AS IDADES DO OBJETO
-const idade = pessoas.map(obj => ({idade : obj.idade}));
-console.log(idade);
-
-//ADICIONA UMA CHAVE DE ID EM CADA OBJETO
-
-const comId = pessoas.map(function (obj,indice){
-    const newObj = {...obj};
-    newObj.id = indice + 1
-    return newObj; 
-});
-console.log(comId)
-console.log(pessoas)
+console.log(maisVelha)
