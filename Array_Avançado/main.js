@@ -1,4 +1,4 @@
-//VALOR POR REFERÊNCIA
+// VALOR POR REFERÊNCIA
 
 // const nomes = ['Saulo','Gomes','Fonseca']
 // const nomes = new Array('Saulo','Gomes','Fonseca')
@@ -29,18 +29,66 @@
 
 // ******************************************************************************************************************
 
+// const a1 = [1,2,3];
+// const a2 = [4,5,6];
+// //const a3 = a1 + a2;
+// // const a3 = a1.concat(a2, [7,8,9],'Saulo');
+
+// //... Rest operator, ...Spread operator
+
+// const a3 = [...a1,...a2, ...[7,8,9] ,'Saulo']
+// console.log(a3);
+
+// ******************************************************************************************************************
+// RETORNE OS NÚMEROS MAIORES QUE 10 
+
+// const numeros = [1 , 55 , 6 , 12 , 22 , 9 , 10 , 75 , 3 , 22 , 14 , 18]
+// // let numerosMaiores = []
+
+// // for (let numero of numeros){
+// //     if(numero >10)
+// //     numerosMaiores.push(numero) ;
+// // }
+
+// // console.log(numerosMaiores)
+
+// // *******FILTER***********
+
+// // function callBackFunction(valor){
+// //     return (valor >10)
+// // }
+// // const numerosFiltrados = numeros.filter(callBackFunction);
+// // console.log(numerosFiltrados)
+
+// // OU 
+
+// const numerosFiltrados = numeros.filter((valor) =>  valor > 10);
+
+// console.log(numerosFiltrados)
 
 
-const a1 = [1,2,3];
-const a2 = [4,5,6];
-//const a3 = a1 + a2;
-// const a3 = a1.concat(a2, [7,8,9],'Saulo');
+//FILTRA PESSOAS COM O NOME MAIOR QUE 5 LETRAS
+const pessoas = [
+    {nome : 'Saulo' , idade: 25},
+    {nome : 'Gomes' , idade: 67},
+    {nome : 'Fonseca' , idade: 55},
+    {nome : 'Ana' , idade: 32},
+    {nome : 'Joao' , idade: 28},
+    {nome : 'Claudio' , idade: 33},
+]
 
-//... Rest operator, ...Spread operator
+const pessoasNomeGrande = pessoas.filter(obj =>  obj.nome.length >=5)
 
-const a3 = [...a1,...a2, ...[7,8,9] ,'Saulo']
-console.log(a3);
+console.log(pessoasNomeGrande)
 
+//FILTRA PESSOAS COM MAIS DE 50 ANOS  
 
+const pessoasMaisCinquenta = pessoas.filter(obj => obj.idade > 50) 
+console.log(pessoasMaisCinquenta)
+
+//FILTRA PESSOAS QUE O NOME TERMINCA COM "A"
+
+const pessoasFinalA = pessoas.filter(obj => obj.nome.endsWith('a') )
+console.log(pessoasFinalA)
 
 
