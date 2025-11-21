@@ -1,0 +1,16 @@
+//VALOR POR REFERÊNCIA
+
+// const nomes = ['Saulo','Gomes','Fonseca']
+const nomes = new Array('Saulo','Gomes','Fonseca')
+const novo = [...nomes]; //COM REST OPERATOR, OS ARRAYS VIRAM INDIVIDUAIS
+
+novo.pop();
+nomes.push('Claudia');
+novo.unshift('Wallace');
+console.log(nomes);
+console.log(novo);
+console.log(nomes.slice(1,3))
+
+const nomes2 = 'Saulo Gomes Fonseca'
+const arrayNomes2 = nomes2.split(' ')
+console.log(arrayNomes2)
