@@ -167,17 +167,43 @@
 //RETORNE APENAS A PESSOA MAIS VELHA
 
 
-const pessoas = [
-    {nome : 'Saulo' , idade: 25},
-    {nome : 'Gomes' , idade: 67},
-    {nome : 'Fonseca' , idade: 55},
-    {nome : 'Ana' , idade: 32},
-    {nome : 'Joao' , idade: 28},
-    {nome : 'Claudio' , idade: 33},
-]
+// const pessoas = [
+//     {nome : 'Saulo' , idade: 25},
+//     {nome : 'Gomes' , idade: 67},
+//     {nome : 'Fonseca' , idade: 55},
+//     {nome : 'Ana' , idade: 32},
+//     {nome : 'Joao' , idade: 28},
+//     {nome : 'Claudio' , idade: 33},
+// ]
 
-const maisVelha = pessoas.reduce(function ( acumulador, valor){
-    if (acumulador.idade > valor.idade) return acumulador ; return valor;
+// const maisVelha = pessoas.reduce(function ( acumulador, valor){
+//     if (acumulador.idade > valor.idade) return acumulador ; return valor;
+// },0);
+
+// console.log(maisVelha)
+
+
+// ******** JUNTANDO FILTER / MAP / REDUCE ********
+
+//RETORNE A SOMA DO DOBRO DE TODOS OS PARES
+
+const numeros = [1 , 55 , 6 , 12 , 22 , 9 , 10 , 75 , 3 , 22 , 14 , 18];
+
+const numeroPares = numeros.filter(function(valor){
+        return valor % 2 === 0;
+});
+
+
+
+const dobroDosPares = numeroPares.map(function(valor){
+    return valor * 2;
+});
+
+console.log(dobroDosPares)
+const somaDobrosPares = dobroDosPares.reduce(function(acumulador,valor){
+    acumulador += valor;
+    return acumulador;
 },0);
 
-console.log(maisVelha)
+console.log(somaDobrosPares)
+
