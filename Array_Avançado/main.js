@@ -195,21 +195,22 @@
 
 
 
-// const dobroDosPares = numeroPares.map(function(valor){
-//     return valor * 2;
-// });
+const dobroDosPares = numeroPares.map(function(valor){
+    return valor * 2;
+});
 
-// console.log(dobroDosPares)
-// const somaDobrosPares = dobroDosPares.reduce(function(acumulador,valor){
-//     acumulador += valor;
-//     return acumulador;
-// },0);
+console.log(dobroDosPares)
+const somaDobrosPares = dobroDosPares.reduce(function(acumulador,valor){
+    acumulador += valor;
+    return acumulador;
+},0);
 
-// console.log(somaDobrosPares)
+console.log(somaDobrosPares)
 
 
-// FOR EACH 
+//FOR EACH 
 
 const a1 = [10 , 20, 30 , 40, 50, 60 ]
 
 a1.forEach((valor,indice) => console.log(valor,indice))
+
