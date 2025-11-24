@@ -86,19 +86,79 @@
 
 
 
-function Pessoa (nome, sobrenome){
+// function Pessoa (nome, sobrenome){
+//     this.nome = nome;
+//     this.sobrenome = sobrenome;
+//     // this.nomeCompleto = () => this.nome + ' ' + this.sobrenome;
+// }
+
+// const pesso1 = new Pessoa('Saulo' , 'Gomes')
+// const pessoa2 = new Pessoa ('Joao','Maria')
+
+// console.dir(pesso1);
+// console.dir(pessoa2);
+
+// Pessoa.prototype.estouAqui = 'Aqui'
+// Pessoa.prototype.nomeCompleto =  function(){
+//     return this.nome + ' ' + this.sobrenome;
+// }
+
+
+// ***************** MANIPULAÇÃO DE PROTOTYPES ****************
+
+// //new Objeto -> Object.prototype
+// const objA = {
+//     chaveA : 'A',
+//     // __proto__: Object.prototype
+
+// }
+// const objB = {
+//     chaveB : 'B',
+//     // __proto__: objA
+// }
+
+// const objC = {
+//     chaveC : 'C',
+// }
+
+
+// Object.setPrototypeOf(objB, objA);
+// Object.setPrototypeOf(objC,objB)
+// console.log(objB.chaveA)
+
+
+function Produto(nome,preco) {
     this.nome = nome;
-    this.sobrenome = sobrenome;
-    // this.nomeCompleto = () => this.nome + ' ' + this.sobrenome;
+    this.preco = preco;
 }
 
-const pesso1 = new Pessoa('Saulo' , 'Gomes')
-const pessoa2 = new Pessoa ('Joao','Maria')
 
-console.dir(pesso1);
-console.dir(pessoa2);
-
-Pessoa.prototype.estouAqui = 'Aqui'
-Pessoa.prototype.nomeCompleto =  function(){
-    return this.nome + ' ' + this.sobrenome;
+Produto.prototype.desconto = function (percentual){
+    this.preco = this.preco - (this.preco *(percentual / 100));
 }
+
+Produto.prototype.aumenta = function (percentual){
+    this.preco = this.preco + (this.preco *(percentual / 100));
+}
+
+const p1 =  new Produto('Camiseta', 50);
+
+const p2 = {
+    nome  : 'Caneca',
+    preco : 15
+};
+
+Object.setPrototypeOf(p2,Produto.prototype)
+p2.aumenta(10);
+
+console.log(p1)
+console.log(p2)
+
+const p3 = Object.create(Produto.prototype,{
+    preco: {
+        value : 115,
+        enumerable : true,
+         writable : true,
+    },})
+p3.aumenta(10)
+console.log(p3)
