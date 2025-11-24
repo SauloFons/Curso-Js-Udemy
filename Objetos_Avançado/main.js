@@ -22,7 +22,7 @@
 
 // pessoa1.falarNome();
 
-// DEFINE PROPERTY /  PROPERTIES 
+// ******************DEFINE PROPERTY /  PROPERTIES ***************************
 
 // function Produto(nome, preco , estoque){
 //     // this.nome = nome;
@@ -73,11 +73,32 @@
 // console.log(Object.keys(p1))
 // console.log(p1.estoque)
 
-// MÉTODOS ÚTEIS PARA OBJETOS
+// ********************MÉTODOS ÚTEIS PARA OBJETOS********************
 
-const produto = {nome: 'caneca', preco : 18};
+// const produto = {nome: 'caneca', preco : 18};
 
-console.log(Object.getOwnPropertyDescriptor(produto,'nome'));
-console.log(Object.keys(produto));
-console.log (Object.values(produto))
-console.log(Object.entries(produto))
+// console.log(Object.getOwnPropertyDescriptor(produto,'nome'));
+// console.log(Object.keys(produto));
+// console.log (Object.values(produto))
+// console.log(Object.entries(produto)) // Arrays
+
+//******************PROTOTYPES*******************
+
+
+
+function Pessoa (nome, sobrenome){
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    // this.nomeCompleto = () => this.nome + ' ' + this.sobrenome;
+}
+
+const pesso1 = new Pessoa('Saulo' , 'Gomes')
+const pessoa2 = new Pessoa ('Joao','Maria')
+
+console.dir(pesso1);
+console.dir(pessoa2);
+
+Pessoa.prototype.estouAqui = 'Aqui'
+Pessoa.prototype.nomeCompleto =  function(){
+    return this.nome + ' ' + this.sobrenome;
+}
