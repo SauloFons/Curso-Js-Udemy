@@ -24,51 +24,60 @@
 
 // DEFINE PROPERTY /  PROPERTIES 
 
-function Produto(nome, preco , estoque){
-    // this.nome = nome;
-    // this.preco = preco;
-    // this.estoque = estoque;
+// function Produto(nome, preco , estoque){
+//     // this.nome = nome;
+//     // this.preco = preco;
+//     // this.estoque = estoque;
 
-    // Object.defineProperty(this, 'estoque', {
-    //     enumerable : true, //mostra a chave 
-    //     value : estoque, // referencia o valor
-    //     writable : false, // pode alter o valor
-    //     configurable : false, // pode reconfigurar a chave (deletar a chave, ou reconfigurá-la posteriormente)
-    // })
+//     // Object.defineProperty(this, 'estoque', {
+//     //     enumerable : true, //mostra a chave 
+//     //     value : estoque, // referencia o valor
+//     //     writable : false, // pode alter o valor
+//     //     configurable : false, // pode reconfigurar a chave (deletar a chave, ou reconfigurá-la posteriormente)
+//     // })
 
-//     Object.defineProperties(this, {
-//         nome: {
-//             enumerable : true,
-//             value : nome,
-//             writable : true,
-//             configurable : false,
+// //     Object.defineProperties(this, {
+// //         nome: {
+// //             enumerable : true,
+// //             value : nome,
+// //             writable : true,
+// //             configurable : false,
+// //         },
+
+// //         preco : {
+// //             enumerable : true,
+// //             value : preco,
+// //             writable : true,
+// //             configurable : true,
+
+// //         }
+// //     })
+//         let estoquePrivado = estoque;
+//         Object.defineProperty(this, 'estoque', {
+//         enumerable : true, 
+//         configurable : false,
+//         get: function(){
+//             return estoquePrivado;
 //         },
-
-//         preco : {
-//             enumerable : true,
-//             value : preco,
-//             writable : true,
-//             configurable : true,
-
+//         set : function(valor){
+//             if (typeof valor !== 'number'){
+//                 throw new TypeError ('Não é um número');
+//             }
+//             estoquePrivado = valor
 //         }
 //     })
-        let estoquePrivado = estoque;
-        Object.defineProperty(this, 'estoque', {
-        enumerable : true, 
-        configurable : false,
-        get: function(){
-            return estoquePrivado;
-        },
-        set : function(valor){
-            if (typeof valor !== 'number'){
-                throw new TypeError ('Não é um número');
-            }
-            estoquePrivado = valor
-        }
-    })
-}
+// }
 
-const p1 = new Produto('calça', 20 , 3)
-console.log(p1);
-console.log(Object.keys(p1))
-console.log(p1.estoque)
+// const p1 = new Produto('calça', 20 , 3)
+// console.log(p1);
+// console.log(Object.keys(p1))
+// console.log(p1.estoque)
+
+// MÉTODOS ÚTEIS PARA OBJETOS
+
+const produto = {nome: 'caneca', preco : 18};
+
+console.log(Object.getOwnPropertyDescriptor(produto,'nome'));
+console.log(Object.keys(produto));
+console.log (Object.values(produto))
+console.log(Object.entries(produto))
