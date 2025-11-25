@@ -127,38 +127,85 @@
 // console.log(objB.chaveA)
 
 
-function Produto(nome,preco) {
+// function Produto(nome,preco) {
+//     this.nome = nome;
+//     this.preco = preco;
+// }
+
+
+// Produto.prototype.desconto = function (percentual){
+//     this.preco = this.preco - (this.preco *(percentual / 100));
+// }
+
+// Produto.prototype.aumenta = function (percentual){
+//     this.preco = this.preco + (this.preco *(percentual / 100));
+// }
+
+// const p1 =  new Produto('Camiseta', 50);
+
+// const p2 = {
+//     nome  : 'Caneca',
+//     preco : 15
+// };
+
+// Object.setPrototypeOf(p2,Produto.prototype)
+// p2.aumenta(10);
+
+// console.log(p1)
+// console.log(p2)
+
+// const p3 = Object.create(Produto.prototype,{
+//     preco: {
+//         value : 115,
+//         enumerable : true,
+//          writable : true,
+//     },})
+// p3.aumenta(10)
+// console.log(p3)
+
+
+
+// ************ HERANÇA ***************
+
+//Produto -> aumento, desconto 
+//Camiseta -> Cor, caneca = material
+
+function Produto(nome,preco){
     this.nome = nome;
     this.preco = preco;
 }
 
-
-Produto.prototype.desconto = function (percentual){
-    this.preco = this.preco - (this.preco *(percentual / 100));
+Produto.prototype.aumenta = function(quantia){
+    this.preco += quantia;
 }
 
-Produto.prototype.aumenta = function (percentual){
-    this.preco = this.preco + (this.preco *(percentual / 100));
+Produto.prototype.desconto = function(quantia){
+    this.preco -= quantia;
 }
 
-const p1 =  new Produto('Camiseta', 50);
+function Camiseta(nome, preco, cor){
+    Produto.call(this, nome, preco );
+    this.cor = cor;
+}
 
-const p2 = {
-    nome  : 'Caneca',
-    preco : 15
-};
+Camiseta.prototype = Object.create(Produto.prototype)
+Camiseta.prototype.constructor = Camiseta;
+Camiseta.prototype.aumenta = function(percentual){
+    this.preco = this.preco + this.preco *(percentual/100);
+}
 
-Object.setPrototypeOf(p2,Produto.prototype)
-p2.aumenta(10);
+const camiseta = new Camiseta ('Regata', 7.5 , 'Vermelho');
+camiseta.aumenta(5);
+console.log(camiseta)
 
-console.log(p1)
-console.log(p2)
+function Caneca(nome,preco, tipo){
+    Produto.call(this,nome,preco);
+    this.tipo = tipo;
+}
 
-const p3 = Object.create(Produto.prototype,{
-    preco: {
-        value : 115,
-        enumerable : true,
-         writable : true,
-    },})
-p3.aumenta(10)
-console.log(p3)
+const caneca = new Caneca('Canequina', 24 , 'Alça')
+
+Caneca.prototype = Object.create(Produto.prototype);
+Caneca.prototype.constructor = Caneca;
+
+console.log(caneca)
