@@ -20,7 +20,7 @@ function criaPessoa(nome,sobrenome){
         nome : {value : nome},
         sobreone : {value : sobrenome},
 
-    })
+    });
 }
 
 
