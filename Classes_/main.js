@@ -48,54 +48,79 @@
 
 // ********************* HERANÇAS *********************
 
-class DispotivoEletronico{
-    constructor(nome){
-        this.nome = nome;
-        this.ligado = false;
-    }
+// class DispotivoEletronico{
+//     constructor(nome){
+//         this.nome = nome;
+//         this.ligado = false;
+//     }
 
-    ligar(){
-        if(this.ligado){
-            console.log( `${this.nome} já está ligado`);
-            return;
-        }
-        console.log('Você ligou o dispositivo')
-        this.ligado = true;
-    };
+//     ligar(){
+//         if(this.ligado){
+//             console.log( `${this.nome} já está ligado`);
+//             return;
+//         }
+//         console.log('Você ligou o dispositivo')
+//         this.ligado = true;
+//     };
 
-    desligar(){
-        if(!this.ligado){
-            console.log( `${this.nome} já está desligado`);
-            return;
-        }
-        this.ligado = false;
-        console.log('Você desligou o dispositivo')
-    }
+//     desligar(){
+//         if(!this.ligado){
+//             console.log( `${this.nome} já está desligado`);
+//             return;
+//         }
+//         this.ligado = false;
+//         console.log('Você desligou o dispositivo')
+//     }
+// }
+
+// const de1 = new DispotivoEletronico('TV');
+// // de1.ligar()
+// // de1.desligar()
+
+// class Smartphone extends DispotivoEletronico{
+//     constructor(nome,cor,modelo){
+//         super(nome);
+//         this.cor = cor;
+//         this.modelo = modelo;
+//     }
+// }
+
+// class Tablet extends DispotivoEletronico{
+//     constructor(nome,temWifi){
+//         super(nome);
+//         this.temWifi = temWifi;
+//     }
+// }
+
+// const s1 = new Smartphone('Poco','Azul','F3');
+// const t1 = new Tablet('Lnv',true)
+// s1.ligar()
+// console.log(s1)
+// t1.ligar()
+// console.log(t1)
+
+
+// ************************* METODOS DE INSTÂNCIA E ESTÁTICOS **************************
+
+class ControleRemoto {
+  constructor(tv) {
+    this.tv = tv;
+    this.volume = 0;
+  }
+
+  // Método de instância
+  aumentarVolume() {
+    this.volume += 2;
+  }
+  diminuirVolume() {
+    this.volume -= 2;
+  }
+
+  // Método estático
+  static soma(x, y) {
+    console.log(this);
+  }
 }
 
-const de1 = new DispotivoEletronico('TV');
-// de1.ligar()
-// de1.desligar()
-
-class Smartphone extends DispotivoEletronico{
-    constructor(nome,cor,modelo){
-        super(nome);
-        this.cor = cor;
-        this.modelo = modelo;
-    }
-}
-
-class Tablet extends DispotivoEletronico{
-    constructor(nome,temWifi){
-        super(nome);
-        this.temWifi = temWifi;
-    }
-}
-    
-
-const s1 = new Smartphone('Poco','Azul','F3');
-const t1 = new Tablet('Lnv',true)
-s1.ligar()
-console.log(s1)
-t1.ligar()
-console.log(t1)
+const controle1 = new ControleRemoto('LG');
+ControleRemoto.soma();
